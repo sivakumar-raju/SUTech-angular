@@ -27,7 +27,6 @@
                     <mat-option *ngFor="let option of options" [value]="formData.option">{{ option }}</mat-option>
                   </mat-select>
                 </mat-form-field>
-
                 <mat-form-field>
                   <mat-label>Current Profile</mat-label>
                   <mat-select required [(ngModel)]="formData.selectedOption" name="selectOption">
