@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://nodemailer-u54j.onrender.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

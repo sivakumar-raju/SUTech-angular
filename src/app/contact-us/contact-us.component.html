@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-sm-12 col-md-2 col-lg-4"></div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="text-center">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-form">
+            <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput name="name" [(ngModel)]="formData.name" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                  <mat-label>Email</mat-label>
+                  <input matInput type="email" name="email" [(ngModel)]="formData.email" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input matInput type="tel" name="phone" [(ngModel)]="formData.phone" required>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+                  <mat-label>Courses</mat-label>
+                  <mat-select name="courses" [(ngModel)]="formData.course" >
+                    <mat-option *ngFor="let course of courses" [value]="course">{{ course }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Placement Enquiry </mat-label>
+                    <input matInput name="placementEnquiry" [(ngModel)]="formData.placementEnquiry">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Comments</mat-label>
+                  <textarea matInput name="comments" [(ngModel)]="formData.comments"></textarea>
+                </mat-form-field>
+                <div class="submit-btn">
+                    <button class="btn btn-primary btn-md" mat-raised-button color="primary" type="submit">Submit</button>  
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-4 d-inline-flex justify-content-center align-items-center">
+        <img src="./assets/images/contactus.svg" alt="SVG Example" class="contact-us-image">
+    </div>
+</div>
+  
+<div class="row text-center">
+    <div class="social-icons">
+        <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+      </div>
+      
+</div>

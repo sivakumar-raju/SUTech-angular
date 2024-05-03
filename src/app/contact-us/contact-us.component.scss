@@ -1,0 +1,47 @@
+mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 5px;
+  }
+  
+  .success-snackbar {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .submit-btn{
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-form{
+    padding: 30px;
+    margin-bottom: 50px;
+  }
+
+  .contact-us-image{
+    height: 20%;
+  }
+
+
+  .social-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-icons a {
+    margin-right: 10px;
+    color: #333; /* Change color as needed */
+  }
+  
+  .social-icons a:last-child {
+    margin-right: 0;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff; /* Change color on hover as needed */
+  }
+  
+  
