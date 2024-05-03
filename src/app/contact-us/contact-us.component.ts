@@ -10,11 +10,36 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ContactUsComponent {
   courses = ['Java', 'Python', 'DevOps', 'Machine Learning', 'SQL'];
+  options: string[] = [
+    'B.A',
+    'B.Sc',
+    'B.Com',
+    'B.B.A',
+    'ITI/Diploma',
+    'B.E/ B.Tech Computer Science',
+    'B.E/ B.Tech ECE',
+    'B.E/ B.Tech EEE',
+    'B.E/ B.Tech Information Technology',
+    'B.E/ B.Tech Civil',
+    'B.E/ B.Tech Mechanical',
+    'B.E/ B.Tech - Others',
+    'M.E / M.Tech',
+    'Others'
+  ];
+  workingOptions = [
+    { value: 'Student', viewValue: 'Student' },
+    { value: 'Working in the IT Industry', viewValue: 'Working in the IT Industry' },
+    { value: 'Working in Non IT Industry', viewValue: 'Working in Non IT Industry' },
+    { value: 'Looking for a career in the IT industry', viewValue: 'Looking for a career in the IT industry' }
+  ];
+  selectedOption: string = '';
   formData = {
     name: '',
     email: '',
     phone: '',
     course: '',
+    option: '',
+    selectedOption: '',
     placementEnquiry: '',
     comments: ''
   };

@@ -14,7 +14,4 @@ export class CoursesComponent {
     { image: './assets/courses-images/mern.png' ,title: 'MEAN Stack', description: 'Embark on a journey into full-stack development with our online coaching in the MEAN stack. From MongoDB to Angular, our seasoned mentors will provide comprehensive guidance, empowering you to build dynamic web applications and secure rewarding job placements.' },
     { image: './assets/courses-images/sql.jpg' ,title: 'SQL', description: 'Harness the power of SQL with our online coaching sessions. Whether you are a beginner or an experienced professional, our instructors will help you master SQL queries and database management, opening doors to diverse career prospects in database administration and data analysis.' },
  ];
-
- 
-
 }

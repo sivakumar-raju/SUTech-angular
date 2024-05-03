@@ -2,7 +2,7 @@
     <div class="col-sm-12 col-md-2 col-lg-4"></div>
     <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="text-center">
-            <h2>Contact Us</h2>
+            <h1>Still have queries? Contact Us</h1>
         </div>
         <div class="contact-form">
             <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
@@ -20,6 +20,23 @@
                   <mat-label>Phone</mat-label>
                   <input matInput type="tel" name="phone" [(ngModel)]="formData.phone" required>
                 </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Educational Qualification</mat-label>
+                  <mat-select required name="select-ACXfHBASt">
+                    <mat-option *ngFor="let option of options" [value]="formData.option">{{ option }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Current Profile</mat-label>
+                  <mat-select required [(ngModel)]="formData.selectedOption" name="selectOption">
+                    <mat-option *ngFor="let option of workingOptions" [value]="option.value">
+                      {{ option.viewValue }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                
                 
                 <mat-form-field appearance="fill">
                   <mat-label>Courses</mat-label>
