@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CoursesComponent } from './courses/courses.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { CoursesComponent } from './courses/courses.component';
-import { JobsComponent } from './jobs/jobs.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select'; 
 import { HttpClientModule } from '@angular/common/http';
+import { JobCreateComponent } from './job-create/job-create.component';
+import { JobsComponent } from './jobs/jobs.component';
 import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgModule } from '@angular/core';
+import { QuillModule } from 'ngx-quill';
+import { SafeHtmlPipe } from './safe-html.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,9 @@ import {MatCardModule} from '@angular/material/card';
     CoursesComponent,
     JobsComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    JobCreateComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     HttpClientModule,
     MatCardModule,
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

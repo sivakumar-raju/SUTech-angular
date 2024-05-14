@@ -2,15 +2,38 @@ import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
-  selector: 'app-jobs',
-  templateUrl: './jobs.component.html',
-  styleUrl: './jobs.component.scss'
+  selector: 'app-job-create',
+  templateUrl: './job-create.component.html',
+  styleUrl: './job-create.component.scss'
 })
-export class JobsComponent {
+export class JobCreateComponent {
+  editorContent: string = '';
   fetchedContent: any;
 
   constructor(private dataService: DataService) { 
     this.fetchContent();
+  }
+  createJob() {
+    this.dataService.postData({ content: this.editorContent }).subscribe(
+      response => {
+        console.log('Data posted successfully:', response);
+      },
+      error => {
+        console.error('Error posting data:', error);
+      }
+    );
+  }
+
+
+  updateItem(itemId: string, newData: any): void {
+    this.dataService.updateItem(itemId, newData).subscribe(
+      () => {
+        // Handle successful update, e.g., update the item in the UI
+      },
+      error => {
+        console.error('Error updating item:', error);
+      }
+    );
   }
 // Method to fetch content from the backend
 fetchContent() {
@@ -38,5 +61,5 @@ deleteItem(itemId: string): void {
 }
 
 
-
+  
 }

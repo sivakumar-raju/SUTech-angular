@@ -1,0 +1,25 @@
+<div class="row p-3"> 
+    <h2>Add Open Positions</h2>
+    <div class="row">
+        <quill-editor [(ngModel)]="editorContent"></quill-editor>
+        <button (click)="createJob()">Create Job</button>
+    </div>
+ </div>
+
+ <div class="row">
+  <h1>Displayed Jobs</h1>
+  <div class="row p-3"> 
+    <h2>Open Positions</h2>
+    <div class="row" *ngIf="fetchedContent.length > 0">
+    <div class="card">
+     <div class="card-body">
+         <div *ngFor="let item of fetchedContent">
+             <div [innerHTML]="item.content | safeHtml"></div>
+             <div class="p-2 flex-end delete-button button-box">
+                 <button (click)="deleteItem(item._id)" class="nine">Delete</button>
+         </div>
+     </div>
+   </div>
+ </div>
+ 
+ </div>

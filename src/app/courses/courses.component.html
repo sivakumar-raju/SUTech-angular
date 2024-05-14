@@ -8,13 +8,11 @@
             <div class="card" *ngFor="let item of items">
                 <img class="card-img-top img-fluid" [src]="item.image" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">{{ item.title }}</h4>
+                    <h2 class="card-title">{{ item.title }}</h2>
                     <p class="card-text">{{ item.description }}</p>
                     <div style="flex-grow: 1;"></div>
                 </div>
             </div>
         </div>
-        
-        
     </div>
 </div>

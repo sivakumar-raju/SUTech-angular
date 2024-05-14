@@ -11,7 +11,7 @@
     flex-grow: 1 !important;
     display: flex;
     flex-direction: column;
-    min-height: 200px;
+    min-height: 220px;
 }
 
 .card-title,
@@ -22,3 +22,65 @@
 .card-img-top{
     height: 200px;
 }
+
+
+@media only screen and (max-width: 576px) {
+    .card-columns {
+        column-count: 1;
+        column-gap: 2.25rem;
+    }
+
+    .card-body {
+        flex-grow: 1 !important;
+        display: flex;
+        flex-direction: column;
+        min-height: 290px;
+    }
+  }
+  
+  
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .card-columns {
+        column-count: 3;
+        column-gap: 2.25rem;
+    }
+
+    .card-body {
+        flex-grow: 1 !important;
+        display: flex;
+        flex-direction: column;
+        min-height: 262px;
+    }
+  }
+  
+  /* Targeting small laptops and desktops */
+  @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+    /* Your styles for small laptops and desktops here */
+    .card-columns {
+        column-count: 4;
+        column-gap: 2.25rem;
+    }
+
+    .card-body {
+        flex-grow: 1 !important;
+        display: flex;
+        flex-direction: column;
+        min-height: 262px;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .card-columns {
+        column-count: 5;
+        column-gap: 2.25rem;
+    }
+
+    .card-body {
+        flex-grow: 1 !important;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+    }
+  }
+
+  
