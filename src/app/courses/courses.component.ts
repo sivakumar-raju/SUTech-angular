@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './courses.component.scss'
 })
 export class CoursesComponent {
+  constructor(private router: Router) { 
+   
+  }
   items = [
     { image: './assets/courses-images/java.jpg' ,title: 'Java', description: 'Our experienced teaching staff provides comprehensive online coaching in Java programming, preparing you for lucrative job opportunities in the software development industry.' },
     { image: './assets/courses-images/python.jpg' ,title: 'Python', description: 'Unlock the power of Python with our online coaching, guided by industry experts. Learn Python programming fundamentals and advanced concepts to excel in diverse career paths, including data science, web development, and automation.' },
@@ -14,4 +18,8 @@ export class CoursesComponent {
     { image: './assets/courses-images/mern.png' ,title: 'MEAN Stack', description: 'Embark on a journey into full-stack development with our online coaching in the MEAN stack. From MongoDB to Angular, our seasoned mentors will provide comprehensive guidance, empowering you to build dynamic web applications and secure rewarding job placements.' },
     { image: './assets/courses-images/sql.jpg' ,title: 'SQL', description: 'Harness the power of SQL with our online coaching sessions. Whether you are a beginner or an experienced professional, our instructors will help you master SQL queries and database management, opening doors to diverse career prospects in database administration and data analysis.' },
  ];
+
+ navigateToContact() {
+  this.router.navigate(['/contact-us']); 
+}
 }

@@ -13,3 +13,45 @@ button:focus:not(:focus-visible) {
     cursor: pointer;
     border: 0px;
 }
+
+#nav-bar .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; 
+    background-color: rgba(0,0,0,0.84);
+  }
+  
+ body {
+    padding-top: 70px; 
+  }
+
+a {
+  color: #fff;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.5s, transform 0.5s; 
+  transform-origin: center;
+  }
+
+  a:hover{
+    color: #fff; 
+    // transform: rotate3d(1, -0.5, 0, 360deg); 
+  }
+
+  .navbar-nav .nav-link.active{
+     color: #90caf9 ;
+     font-family: Roboto, Helvetica Neue, sans-serif;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+  }
+
+  .navbar-toggler-icon{
+    background-color: #fff;
+  }
+
+  .nav-btn{
+    background-color: #fff !important;
+}

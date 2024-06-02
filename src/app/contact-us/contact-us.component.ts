@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { DataService } from '../data.service';
+import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgForm } from '@angular/forms';
 
+declare let particlesJS: any;
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -10,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ContactUsComponent {
   courses = ['Java', 'Python', 'DevOps', 'Machine Learning', 'SQL'];
+  showloader: boolean = false;
   options: string[] = [
     'B.A',
     'B.Sc',
@@ -45,11 +48,12 @@ export class ContactUsComponent {
   };
   
   
-  constructor(private snackBar: MatSnackBar , private http: HttpClient) {}
+  constructor(private snackBar: MatSnackBar , private http: HttpClient , private dataService: DataService) {}
  
   
   submitForm(form: NgForm) {
     console.log("16", this.formData)
+    this.showloader = !this.showloader;
     this.sendEmail();
     form.resetForm();
   }
@@ -70,10 +74,11 @@ export class ContactUsComponent {
       subject: subject,
       text:  JSON.stringify(this.formData)
     };
-
+    this.createRecord(payload)
     this.http.post<any>('https://nodemailer-u54j.onrender.com/send-email', payload)
       .subscribe(
         response => {
+          this.showloader = false;
           console.log('Email sent successfully:', response);
           this.snackBar.open('Form submitted successfully!', 'Close', {
             duration: 3000,
@@ -84,5 +89,24 @@ export class ContactUsComponent {
           console.error('Error sending email:', error);
         }
       );
+  }
+
+  createRecord(payload : any) {
+    const body = JSON.parse(payload.text);
+    this.dataService.createRecord(body).subscribe(response => {
+      console.log('Record created:', response);
+    });
+  }
+
+  getAllRecords() {
+    this.dataService.getAllRecords().subscribe(response => {
+      console.log('All records:', response);
+    });
+  }
+
+  deleteRecord(id: string) {
+    this.dataService.deleteRecord(id).subscribe(() => {
+      console.log('Record deleted');
+    });
   }
 }

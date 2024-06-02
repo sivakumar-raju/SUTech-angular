@@ -1,64 +1,93 @@
-<div class="row">
-    <div class="col-sm-12 col-md-2 col-lg-4"></div>
-    <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="text-center">
-            <h1>Still have queries? Contact Us</h1>
-        </div>
-        <div class="contact-form">
-            <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
-                <mat-form-field appearance="fill">
-                  <mat-label>Name</mat-label>
-                  <input matInput name="name" [(ngModel)]="formData.name" required>
-                </mat-form-field>
-                
-                <mat-form-field appearance="fill">
-                  <mat-label>Email</mat-label>
-                  <input matInput type="email" name="email" [(ngModel)]="formData.email" required>
-                </mat-form-field>
-                
-                <mat-form-field appearance="fill">
-                  <mat-label>Phone</mat-label>
-                  <input matInput type="tel" name="phone" [(ngModel)]="formData.phone" required>
-                </mat-form-field>
-
-                <mat-form-field>
-                  <mat-label>Educational Qualification</mat-label>
-                  <mat-select required name="select-ACXfHBASt">
-                    <mat-option *ngFor="let option of options" [value]="formData.option">{{ option }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Current Profile</mat-label>
-                  <mat-select required [(ngModel)]="formData.selectedOption" name="selectOption">
-                    <mat-option *ngFor="let option of workingOptions" [value]="option.value">
-                      {{ option.viewValue }}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                
-                <mat-form-field appearance="fill">
-                  <mat-label>Courses</mat-label>
-                  <mat-select name="courses" [(ngModel)]="formData.course" >
-                    <mat-option *ngFor="let course of courses" [value]="course">{{ course }}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-
-                <mat-form-field appearance="fill">
-                    <mat-label>Placement Enquiry </mat-label>
-                    <input matInput name="placementEnquiry" [(ngModel)]="formData.placementEnquiry">
-                </mat-form-field>
-
-                <mat-form-field appearance="fill">
-                  <mat-label>Comments</mat-label>
-                  <textarea matInput name="comments" [(ngModel)]="formData.comments"></textarea>
-                </mat-form-field>
-                <div class="submit-btn">
-                    <button class="btn btn-primary btn-md" mat-raised-button color="primary" type="submit">Submit</button>  
-                </div>
-            </form>
-        </div>
+<div class="container" class="background-container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 style="color: #fff;">Still have queries? Contact Us</h1>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-4 d-inline-flex justify-content-center align-items-center">
-        <img src="./assets/images/contactus.svg" alt="SVG Example" class="contact-us-image">
+    <div class="col-sm-12 col-md-1"></div>
+    <div class="col-sm-12 col-md-10">
+      <div class="contact-form">
+        <form (ngSubmit)="submitForm(contactForm)" #contactForm="ngForm">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Name</mat-label>
+                <input matInput name="name" [(ngModel)]="formData.name" required>
+                
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" [(ngModel)]="formData.email" required>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Phone</mat-label>
+                <input matInput type="tel" name="phone" [(ngModel)]="formData.phone"    maxlength="10" 
+                pattern="[0-9]*"  required>
+                
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="w-100">
+                <mat-label>Educational Qualification</mat-label>
+                <mat-select required name="select-ACXfHBASt" [(ngModel)]="formData.course">
+                  <mat-option *ngFor="let option of options" [value]="option">{{ option }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field class="w-100">
+                <mat-label>Current Profile</mat-label>
+                <mat-select required [(ngModel)]="formData.selectedOption" name="selectOption">
+                  <mat-option *ngFor="let option of workingOptions" [value]="option.value">
+                    {{ option.viewValue }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Courses</mat-label>
+                <mat-select name="courses" [(ngModel)]="formData.course">
+                  <mat-option *ngFor="let course of courses" [value]="course">{{ course }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Placement Enquiry</mat-label>
+                <input matInput name="placementEnquiry" [(ngModel)]="formData.placementEnquiry">
+              </mat-form-field>
+            </div>
+            <div class="col-12 col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Comments</mat-label>
+                <textarea matInput name="comments" [(ngModel)]="formData.comments" sty></textarea>
+              </mat-form-field>
+            </div>
+            <div class="col-12 text-center">
+              <div class="submit-btn">
+                <button class="btn btn-primary btn-md button-size" mat-raised-button color="primary" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="loader" *ngIf="showloader"></div>
+    </div>
+    <div class="col-sm-12 col-md-1"></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="social-media">
+    <i class="ri-facebook-circle-fill" style="color: #1877F2;"></i>
+    <i class="ri-whatsapp-fill" style="color: #25D366;"></i>
+    <i class="ri-linkedin-box-fill" style="color: #0A66C2;"></i>
+    <i class="ri-instagram-fill gradient-instagram"></i>
+
     </div>
 </div>
+

@@ -1,0 +1,57 @@
+.carousel{
+   width: 100% !important;
+   height: 35vh; 
+   padding: 0px;
+   margin: 0px;
+}
+
+
+/* app.component.css */
+
+  
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+ 
+  .carousel {
+    position: relative;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .carousel-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px; /* Adjust as needed */
+    background-color: transparent;
+    color: #fff; /* Adjust text color as needed */
+    font-size: 24px; /* Adjust font size as needed */
+    text-align: center;
+  }
+  
+  .owl-carousel .owl-stage-outer {
+    background-color: transparent; /* Ensure carousel background is transparent */
+  }
+  
+
+.carousel-one{
+    width: 100%;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.particles-background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;    
+  }

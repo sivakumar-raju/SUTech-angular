@@ -1,25 +1,46 @@
-<div class="row p-3"> 
-    <h2>Add Open Positions</h2>
-    <div class="row">
-        <quill-editor [(ngModel)]="editorContent"></quill-editor>
-        <button (click)="createJob()">Create Job</button>
+
+<div class="row p-2">
+    <div class="add-job">
+       <button class="btn btn-success job-btn m-1" (click)="fetchContent()"><i class="ri-briefcase-3-fill"></i> Avilable Jobs </button>
+       <button class="btn btn-success job-btn m-1" (click)="addJob()"><i class="ri-add-circle-line"></i> Add Jobs</button>
     </div>
- </div>
+    <div>
+       <div class="row" *ngIf="showQuill">
+        <div class="col">
+            <label for="companyName">Company Name:</label>
+            <input id="companyName" type="text" [(ngModel)]="companyName" placeholder="Enter company name">
+            <br>
+            <label for="experience">Experience:</label>
+            <input id="experience" type="text" [(ngModel)]="experience" placeholder="Enter Years Of Experience">
+        </div>
+        <div class="quill-height p-2">
+            <quill-editor [(ngModel)]="editorContent"></quill-editor>
+        </div>
+       </div>
+    </div>
+    <div class="add-job" *ngIf="showQuill">
+        <button class="btn btn-success job-btn m-1" (click)="createJob()">Create Job</button>
+    </div>
+</div>
 
  <div class="row">
-  <h1>Displayed Jobs</h1>
-  <div class="row p-3"> 
-    <h2>Open Positions</h2>
-    <div class="row" *ngIf="fetchedContent.length > 0">
-    <div class="card">
-     <div class="card-body">
-         <div *ngFor="let item of fetchedContent">
-             <div [innerHTML]="item.content | safeHtml"></div>
-             <div class="p-2 flex-end delete-button button-box">
-                 <button (click)="deleteItem(item._id)" class="nine">Delete</button>
-         </div>
-     </div>
-   </div>
- </div>
- 
+  <h2>Jobs to List</h2>
+  <br>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let item of fetchedContent" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ item.companyName }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ item.experience || 0}} years of Experience
+          <div style="margin-left: auto; color: red;">
+            <i class="ri-delete-bin-fill" (click)="deleteItem(item._id)"></i>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div [innerHTML]="item.content | safeHtml"></div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
  </div>

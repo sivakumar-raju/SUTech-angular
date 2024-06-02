@@ -1,22 +1,39 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-job-create',
   templateUrl: './job-create.component.html',
-  styleUrl: './job-create.component.scss'
+  styleUrl: './job-create.component.scss',
 })
 export class JobCreateComponent {
-  editorContent: string = '';
-  fetchedContent: any;
+  panelOpenState = false;
 
-  constructor(private dataService: DataService) { 
+  editorContent: string = '';
+  companyName: string = '';
+  experience:string = '';
+
+  fetchedContent: any;
+  showQuill: boolean = false;
+
+  constructor(private dataService: DataService , private snackBar: MatSnackBar) { 
     this.fetchContent();
   }
+  
+  addJob(){
+    this.showQuill = !this.showQuill;
+  }
+
   createJob() {
-    this.dataService.postData({ content: this.editorContent }).subscribe(
+    this.dataService.postData({ 
+      content: this.editorContent,
+      companyName: this.companyName,
+      experience : this.experience
+    }).subscribe(
       response => {
         console.log('Data posted successfully:', response);
+        this.fetchContent();
       },
       error => {
         console.error('Error posting data:', error);
@@ -52,10 +69,18 @@ fetchContent() {
 deleteItem(itemId: string): void {
   this.dataService.deleteJob(itemId).subscribe(
     () => {
-      // Handle successful deletion, e.g., remove the item from the UI
+      this.fetchedContent = this.fetchedContent.filter((item: { _id: any; }) => item._id !== itemId);
+      this.snackBar.open('Job deleted successfully', 'Close', {
+        duration: 3000,
+        panelClass: ['success-snackbar']
+      });
     },
     error => {
-      console.error('Error deleting item:', error);
+      console.error('Error deleting job:', error);
+      this.snackBar.open('Error deleting job', 'Close', {
+        duration: 3000,
+        panelClass: ['error-snackbar']
+      });
     }
   );
 }

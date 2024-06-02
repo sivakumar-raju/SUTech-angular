@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jobs',
@@ -8,8 +9,9 @@ import { DataService } from '../data.service';
 })
 export class JobsComponent {
   fetchedContent: any;
+  panelOpenState = false;
 
-  constructor(private dataService: DataService) { 
+  constructor(private dataService: DataService,  private router: Router) { 
     this.fetchContent();
   }
 // Method to fetch content from the backend
@@ -37,6 +39,10 @@ deleteItem(itemId: string): void {
   );
 }
 
+
+navigateToContact() {
+  this.router.navigate(['/contact-us']); // Navigate to contact-us route
+}
 
 
 }

@@ -1,86 +1,30 @@
-.description {
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-.card {
-    display: flex;
-    flex-direction: column;
+.enq-btn{
+margin-top: auto;
 }
 
 .card-body {
-    flex-grow: 1 !important;
     display: flex;
     flex-direction: column;
-    min-height: 220px;
+    height: 100%;
 }
 
-.card-title,
-.card-text {
-    margin-bottom: 0; /* Remove default margin */
+.enq{
+    width: 100%;
+    text-transform: uppercase;
+    background-color: rgb(50, 180, 93);
+    border-color:rgb(50, 180, 93);
+    border-radius: 0px;
 }
 
-.card-img-top{
-    height: 200px;
+.enq:hover{
+    width: 100%;
+    text-transform: uppercase;
+   color: rgb(50, 180, 93);
+   background-color: #fff;
+    border-radius: 1px solid #000;
 }
 
-
-@media only screen and (max-width: 576px) {
-    .card-columns {
-        column-count: 1;
-        column-gap: 2.25rem;
-    }
-
-    .card-body {
-        flex-grow: 1 !important;
-        display: flex;
-        flex-direction: column;
-        min-height: 290px;
-    }
-  }
-  
-  
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .card-columns {
-        column-count: 3;
-        column-gap: 2.25rem;
-    }
-
-    .card-body {
-        flex-grow: 1 !important;
-        display: flex;
-        flex-direction: column;
-        min-height: 262px;
-    }
-  }
-  
-  /* Targeting small laptops and desktops */
-  @media only screen and (min-width: 1024px) and (max-width: 1199px) {
-    /* Your styles for small laptops and desktops here */
-    .card-columns {
-        column-count: 4;
-        column-gap: 2.25rem;
-    }
-
-    .card-body {
-        flex-grow: 1 !important;
-        display: flex;
-        flex-direction: column;
-        min-height: 262px;
-    }
-  }
-  
-  @media only screen and (min-width: 1200px) {
-    .card-columns {
-        column-count: 5;
-        column-gap: 2.25rem;
-    }
-
-    .card-body {
-        flex-grow: 1 !important;
-        display: flex;
-        flex-direction: column;
-        min-height: 260px;
-    }
-  }
-
-  
+.fixed-image {
+    height: 200px; 
+    object-fit: cover; 
+}

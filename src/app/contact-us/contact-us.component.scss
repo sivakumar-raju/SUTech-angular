@@ -13,7 +13,7 @@ mat-form-field {
   
   .submit-btn{
     display: flex;
-    justify-content: center;
+    justify-content: end;
   }
 
   .contact-form{
@@ -44,4 +44,146 @@ mat-form-field {
     color: #007bff; /* Change color on hover as needed */
   }
   
+  .button-size{
+    width: 40%;
+    background-color: rgb(50, 180, 93);
+    color: #fff;
+    border-radius: 0px;
+    border-color: rgb(50, 180, 93);
+  }
+
+  .button-size:hover{
+    width: 40%;
+    color: rgb(50, 180, 93);
+    background-color: #fff;
+    border-radius: 1px solid #000;
+  }
+
+  .text-center , h1{
+    margin-top: 1%;
+    font-weight: 500;
+  }
+
+  .particles-background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;    
+  }
+
+  .carousel{
+    width: 100% !important;
+    height: 35vh; 
+    padding: 0px;
+    margin: 0px;
+ }
+ 
+ 
+ /* app.component.css */
+ 
+   
+   #particles-js {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     z-index: 1;
+   }
+ 
   
+   .carousel {
+     position: relative;
+     width: 100%;
+     position: relative;
+     z-index: 1;
+   }
+   
+   .carousel-text {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     min-height: 200px; /* Adjust as needed */
+     background-color: transparent;
+     color: #fff; /* Adjust text color as needed */
+     font-size: 24px; /* Adjust font size as needed */
+     text-align: center;
+   }
+   
+   .owl-carousel .owl-stage-outer {
+     background-color: transparent; /* Ensure carousel background is transparent */
+   }
+   
+ 
+ .carousel-one{
+     width: 100%;
+     background-color: black;
+     position: relative;
+     overflow: hidden;
+ }
+ 
+ .particles-background{
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     z-index: 0;    
+   }
+
+   .background-container{
+    background: linear-gradient(100deg, rgb(0 3 5), rgb(0 45 60 / 82%));
+   }
+  
+
+.social-media{
+   width: 100%;
+   height: 5vh;
+   font-size: xx-large;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   gap: 1vw;
+   margin: 1%;
+}
+
+.gradient-instagram {
+  background: linear-gradient(to right, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #FCAF45);
+  -webkit-background-clip: text; /* Apply gradient as text color */
+  -webkit-text-fill-color: transparent; /* Hide original text color */
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-color: #ccc #0000;
+  animation: l16 1s infinite linear;
+  position: relative;
+  bottom: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.loader::before,
+.loader::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+}
+.loader::before {
+  border-color: #f03355 #0000;
+  animation: inherit; 
+  animation-duration: .5s;
+  animation-direction: reverse;
+}
+.loader::after {
+  margin: 8px;
+}
+@keyframes l16 { 
+  100%{transform: rotate(1turn)}
+}

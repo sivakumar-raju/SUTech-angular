@@ -1,11 +1,22 @@
-<div class="row p-3"> 
-   <h2>Open Positions</h2>
-   <div class="row" *ngIf="fetchedContent.length > 0">
-   <div class="card">
-    <div class="card-body">
-        <div *ngFor="let item of fetchedContent">
-            <div [innerHTML]="item.content | safeHtml"></div>
-        </div>
-    </div>
-  </div>
-</div>
+<div class="row p-3" *ngIf="fetchedContent?.length > 0">
+  <h2>Jobs Available</h2>
+  <br>
+  <mat-accordion>
+    <mat-expansion-panel class="m-2" *ngFor="let item of fetchedContent; let i = index" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ i + 1 }} &nbsp;&nbsp;
+          {{ item.companyName }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ item.experience || 0}} years of Experience
+          <div style="margin-left: auto">
+            <button class="btn btn-sm btn-success" (click)="navigateToContact()">Apply</button>
+         </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div [innerHTML]="item.content | safeHtml"></div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+ </div>
